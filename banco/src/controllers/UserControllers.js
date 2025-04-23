@@ -77,6 +77,8 @@ module.exports = {
     async login(req,res){
         const {usuario="x"} = req.query;//usuario
         const {senha="x"} = req.query;//senha
+        console.log(usuario)
+        console.log(senha)
         let user = await User.findOne({"nome":usuario,"password":senha});
             if(!user){
                 return res.status("401").json([{msg:"usuario não encontrado"}]);
